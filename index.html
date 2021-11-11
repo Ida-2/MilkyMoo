@@ -1,0 +1,133 @@
+<html>
+
+<body>
+
+
+<p id="guesstext"> Guess how many glasses of milk you got from mommy! </p>
+<p id="interact"> </p>
+<input type="text" id="input" maxlength="3">
+<button onclick="guess()" id="button">Come on. Don't be shy!</button>
+
+
+
+
+<script>
+  a = Math.floor(Math.random() * 101);
+  b = 0;
+
+  function guess(){
+
+
+    b += 1;
+
+    if(document.getElementById("input").value == a){
+
+      document.getElementById("interact").innerHTML = " Good job darling. The milk might have gotten spoiled. It took you " + b + " tries after all!";
+
+      setTimeout(function(){
+        window.location.reload(1);
+      }, 3000);
+    }
+
+
+    document.getElementById("last").innerHTML = "Your last choice, sugar: " + document.getElementById("input").value;
+
+    if(document.getElementById("input").value < a){
+      document.getElementById("input").select();
+      document.getElementById("interact").innerHTML = " &darr; Grrr. Too little! Try again, sugar! &darr;";
+    }
+
+    if(document.getElementById("input").value > a){
+      document.getElementById("input").select();
+      document.getElementById("interact").innerHTML = " &uarr; Auch. Too much for mommy! &uarr;";
+    }
+
+  }
+  /*
+  document.getElementById("input")
+  .addEventListener("keyup", function(event){
+  event.preventDefault();
+  if(event.keyCode === 13){
+  document.getElementById("botton").click();
+  }
+  });*/
+
+  /*let input = documet.querySelector('input');
+  input.addEventListener('keyup', (e) => {
+    if(e.keyCode === 13) {
+      console.log(e.target.value);
+    }
+  })*/
+
+
+</script>
+<p id="last"> </p>
+
+
+<style>
+
+  body{
+    background-color:#a6a6a6;
+
+  }
+
+  input{
+    height: 45px;
+    width: 205px;
+    border-radius: 5px;
+    margin-left: 40%;
+    margin-bottom: 1px;
+    text-align: center;
+    font-size: 26px;
+    font-family: verdana;
+
+  }
+
+  p {
+    text-align: center;}
+
+  #guesstext{
+
+    color:white;
+    font-size: 40px;
+    margin-left: 1%;
+    margin:top: 280px;
+
+    font-family:Verdana;
+
+
+  }
+  botton{
+    height: 45px;
+    width: 50px;
+    background-color: black;
+    border-radius: 5px;
+    border: 0px solid;
+    color:white;
+
+  }
+
+  #last{
+    font-family: Verdana;
+    font-size: 20px;
+    color: black
+    margin-left: 50%
+
+  }
+
+  #interact{
+
+    font-family: Verdana;
+    font-size: 28px;
+    color:black:
+    margin-left: 50%
+
+  }
+
+
+
+</style>
+
+</body>
+
+</html>
